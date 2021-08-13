@@ -54,15 +54,16 @@ def newProject():
     # print(logs_df)
     with io.StringIO() as csv_buffer:
 
-        obj = client.get_object(Bucket=bucket_name, Key='files/logs.csv')
-        allLogs_df = pd.read_csv(obj['Body']).reset_index(drop=True)
-        allLogs_df =allLogs_df.append(logs_df).reset_index()
-        allLogs_df.to_csv(csv_buffer, index=False)
+        # obj = client.get_object(Bucket=bucket_name, Key='files/logs.csv')
+        # allLogs_df = pd.read_csv(obj['Body']).reset_index(drop=True)
+        # allLogs_df =allLogs_df.append(logs_df).reset_index()
+        # allLogs_df.to_csv(csv_buffer, index=False)
 
-        # logs_df.to_csv(csv_buffer, index=False)
+        logs_df.to_csv(csv_buffer, index=False)
+        fileName = "files/" + logId + ".csv"
 
         response = client.put_object(
-            Bucket=bucket_name, Key="files/logs.csv", Body=csv_buffer.getvalue()
+            Bucket=bucket_name, Key=fileName, Body=csv_buffer.getvalue()
         )
 
         status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
