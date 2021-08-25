@@ -76,7 +76,7 @@ def newProject():
     return 'Excited for the new project, Logs Stored Successfully in S3 Bucket defined !'
 
 if __name__ == "__main__":
-    app.run(host ='0.0.0.0', port = 5001, debug = True)
+    app.run(host ='0.0.0.0', port = 80, debug = True)
 
 
 
