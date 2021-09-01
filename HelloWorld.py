@@ -40,9 +40,11 @@ def newProject():
         client.create_bucket(
             Bucket=bucket_name
         )
-    record = json.loads(request.data)
-    id = record['input']['Id']
-    Age = record['input']['Age']
+#     record = json.loads(request.data)
+#     id = record['input']['Id']
+#     Age = record['input']['Age']
+    Age = 23
+    id = "127"
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     logId = id + "_" + str(Age) + str(dt_string)
