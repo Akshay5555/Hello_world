@@ -46,6 +46,7 @@ def newProject():
     Age = 23
     id = "127"
     now = datetime.now()
+    record = {"Age" : Age , "id":id}
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     logId = id + "_" + str(Age) + str(dt_string)
     data=np.array([[logId , "Output Value" , str(record)]])
