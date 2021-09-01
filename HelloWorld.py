@@ -20,7 +20,7 @@ AWS_SECRET_ACCESS_KEY = environ.get("AWS_SECRET_ACCESS_KEY")
 def hello():
     return 'Hello From myTD Service !'
 
-@app.route('/new', methods=['POST'])
+@app.route('/new', methods=['POST' , 'GET'])
 def newProject():
     client = boto3.client(
         's3',
